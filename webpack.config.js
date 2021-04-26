@@ -1,5 +1,6 @@
 var path = require('path')
 var webpack = require('webpack')
+const { VueLoaderPlugin } = require('vue-loader')
 var OptimizeCSSPlugin = require('optimize-css-assets-webpack-plugin')
 
 module.exports = {
@@ -16,11 +17,22 @@ module.exports = {
       {
         test: /\.vue$/,
         loader: 'vue-loader',
-        options: {
-          loaders: {
-            'scss': 'vue-style-loader!css-loader!sass-loader'
-          }
-        }
+      },
+      {
+        test: /\.css$/,
+        use: [
+          'vue-style-loader',
+          'css-loader'
+        ]
+      },
+      {
+        test: /\.s[ac]ss$/i,
+        use: [
+          // 将 Sass 编译成 CSS
+          'vue-style-loader',
+          'css-loader',
+          'sass-loader',
+        ],
       },
       {
         test: /\.js$/,
@@ -34,7 +46,7 @@ module.exports = {
   },
   resolve: {
     alias: {
-      'vue$': 'vue/dist/vue.esm.js'
+      'vue$': 'vue/dist/vue.global.prod.js'
     }
   },
   performance: {
@@ -42,6 +54,7 @@ module.exports = {
   },
   devtool: '#source-map',
   plugins: [
+    new VueLoaderPlugin(),
     new webpack.LoaderOptionsPlugin({
       minimize: true
     }),

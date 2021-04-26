@@ -1,16 +1,7 @@
 import ToggleButton from './Button.vue'
 
-let installed = false
-
-export default {
-  install(Vue) {
-    if (installed) {
-      return
-    }
-    
-    Vue.component('ToggleButton', ToggleButton)
-    installed = true
-  }
+ToggleButton.install = (app) => {
+  app.component(Avatar.name, Avatar)
 }
 
 export {

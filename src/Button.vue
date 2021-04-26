@@ -9,7 +9,7 @@
       type="checkbox"
       class="v-switch-input"
       :name="name"
-      :checked="value"
+      :checked="modelValue"
       :disabled="disabled"
       tabindex="-1"
       @change.stop="toggle"
@@ -20,12 +20,12 @@
     <template v-if="labels">
       <span class="v-switch-label v-left" :style="labelStyle" v-if="toggled">
         <slot name="checked">
-          <template>{{ labelChecked }}</template>
+          {{ labelChecked }}
         </slot>
       </span>
       <span class="v-switch-label v-right" :style="labelStyle" v-else>
         <slot name="unchecked">
-          <template>{{ labelUnchecked }}</template>
+          {{ labelUnchecked }}
         </slot>
       </span>
     </template>
@@ -44,7 +44,7 @@ const DEFAULT_SWITCH_COLOR = '#fff'
 export default {
   name: 'ToggleButton',
   props: {
-    value: {
+    modelValue: {
       type: Boolean,
       default: false
     },
@@ -223,15 +223,16 @@ export default {
     }
   },
   watch: {
-    value(value) {
+    modelValue(value) {
       if (this.sync) {
+        this.$emit('update:modelValue', value)
         this.toggled = !!value
       }
     }
   },
   data() {
     return {
-      toggled: !!this.value
+      toggled: !!this.modelValue
     }
   },
   methods: {
@@ -252,7 +253,8 @@ export default {
         this.toggled = toggled
       }
 
-      this.$emit('input', toggled)
+      // this.$emit('input', toggled)
+      this.$emit('update:modelValue', toggled)
       this.$emit('change', {
         value: toggled,
         tag: this.tag,
