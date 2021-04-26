@@ -1,7 +1,7 @@
 {
-  "name": "vue-js-toggle-button-v3",
+  "name": "vue3-toggle-button",
   "description": "A toggle button component for Vue.js 3+",
-  "version": "1.0.0",
+  "version": "1.4.0",
   "author": "Jack <wyb12358@gmail.com>",
   "private": false,
   "scripts": {
@@ -13,10 +13,10 @@
   "types": "index.d.ts",
   "repository": {
     "type": "git",
-    "url": "https://github.com/euvl/vue-js-toggle-button.git"
+    "url": "https://github.com/wangyb1026/vue-js-toggle-button.git"
   },
-  "bugs": {
-    "url": "https://github.com/euvl/vue-js-toggle-button/issues"
+  "publishConfig": {
+    "registry": "https://npm.pkg.github.com/wangyb1026"
   },
   "peerDependencies": {
     "vue": "^3.0.0"

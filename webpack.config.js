@@ -2,11 +2,11 @@ var path = require('path')
 var webpack = require('webpack')
 const { VueLoaderPlugin } = require('vue-loader')
 var OptimizeCSSPlugin = require('optimize-css-assets-webpack-plugin')
-
+const outPath = path.resolve(__dirname, './dist')
 module.exports = {
   entry: './src/index.js',
   output: {
-    path: path.resolve(__dirname, './dist'),
+    path: outPath,
     publicPath: '/dist/',
     filename: 'index.js',
     library:'vue-js-toggle-button',
