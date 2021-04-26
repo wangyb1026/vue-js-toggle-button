@@ -1,5 +1,5 @@
 {
-  "name": "vue3-toggle-button",
+  "name": "@wangyb1026/vue3-toggle-button",
   "description": "A toggle button component for Vue.js 3+",
   "version": "1.4.0",
   "author": "Jack <wyb12358@gmail.com>",
@@ -16,6 +16,7 @@
     "url": "https://github.com/wangyb1026/vue-js-toggle-button.git"
   },
   "publishConfig": {
+    "cache": "cache/.npm",
     "registry": "https://npm.pkg.github.com/wangyb1026"
   },
   "peerDependencies": {

@@ -6,3 +6,4 @@ demo/dist
 *.map
 package-lock.json
 .vscode
+cache

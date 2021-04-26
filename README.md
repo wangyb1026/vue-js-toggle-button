@@ -23,9 +23,11 @@ npm install vue-js-toggle-button --save
 Import plugin:
 
 ```javascript
+import { createApp } from 'vue'
 import ToggleButton from 'vue-js-toggle-button'
 
-Vue.use(ToggleButton)
+const app = createApp({})
+app.use(ToggleButton).mount('#app')
 ```
 **OR**
 
@@ -34,7 +36,8 @@ Import component:
 ```javascript
 import { ToggleButton } from 'vue-js-toggle-button'
 
-Vue.component('ToggleButton', ToggleButton)
+const app = createApp({})
+app.component('ToggleButton', ToggleButton)
 ```
 
 ### Use
